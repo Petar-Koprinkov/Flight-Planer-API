@@ -26,3 +26,15 @@ def delete_entity(entity_dict, entity_id):
 
 def delete_all_entities(entity_dict):
     entity_dict.clear()
+
+
+def search_entities(entity_dict, entity_criteria):
+    for key, value in entity_dict.items():
+        if entity_criteria.lower() == value.lower():
+            return key
+
+
+def update_entity(entity_dict, entity_id, entity_data):
+    if entity_id in entity_dict:
+        entity_dict[entity_id] = entity_data
+        return entity_dict

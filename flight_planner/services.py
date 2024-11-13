@@ -3,8 +3,8 @@ import storage
 
 class CityService:
     @staticmethod
-    def create_city(city_data):
-        return storage.create_city(city_data)
+    def create_city(city):
+        return storage.create_city(city)
 
     @staticmethod
     def get_all_cities():
@@ -30,8 +30,8 @@ class CityService:
 
 class AirportService:
     @staticmethod
-    def create_airport(airport_data):
-        return storage.create_airport(airport_data)
+    def create_airport(airport):
+        return storage.create_airport(airport)
 
     @staticmethod
     def get_all_airports():
@@ -54,12 +54,16 @@ class AirportService:
         storage.delete_all_airports()
         return ''
 
+    @staticmethod
+    def update_airport(airport, airport_id,  airport_data):
+        return storage.update_flight(airport, airport_id,  airport_data)
+
 
 class FlightService:
 
     @staticmethod
-    def create_flight(flight_data):
-        return storage.create_flight(flight_data)
+    def create_flight(flight):
+        return storage.create_flight(flight)
 
     @staticmethod
     def get_all_flights():
@@ -81,3 +85,11 @@ class FlightService:
     def delete_all_flights():
         storage.delete_all_flights()
         return ''
+
+    @staticmethod
+    def search_flights(flights, criteria):
+        return storage.search_flight(flights, criteria)
+
+    @staticmethod
+    def update_flight(flight, flight_id,  flight_data):
+        return storage.update_flight(flight, flight_id, flight_data)

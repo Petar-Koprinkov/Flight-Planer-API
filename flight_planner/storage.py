@@ -1,4 +1,5 @@
-from general_functions import create_entity, get_entity, delete_entity, delete_all_entities
+from general_functions import create_entity, get_entity, delete_entity, delete_all_entities, search_entities, \
+    update_entity
 
 cities = {}
 airports = {}
@@ -47,6 +48,10 @@ def delete_all_airports():
     delete_all_entities(airports)
 
 
+def update_airport(airport, airport_id, airport_data):
+    return update_entity(airport, airport_id, airport_data)
+
+
 #Functions for flights
 def create_flight(flight):
     return create_entity(flights, flight)
@@ -66,3 +71,11 @@ def delete_flight(flight_id):
 
 def delete_all_flights():
     delete_all_entities(flights)
+
+
+def search_flight(flights, criteria):
+    return search_entities(flights, criteria)
+
+
+def update_flight(flight, flight_id,  flight_data):
+    return update_entity(flight, flight_id, flight_data)

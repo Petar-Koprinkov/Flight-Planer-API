@@ -1,6 +1,7 @@
 from flask import request, jsonify, abort
 from flight_planner.services import CityService, AirportService, FlightService
 
+
 def register_routes(app):
     # City endpoints
     @app.route('/cities/', methods=['POST', 'GET'])
