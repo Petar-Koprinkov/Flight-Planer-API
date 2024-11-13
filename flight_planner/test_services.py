@@ -2,8 +2,6 @@ import unittest
 from unittest.mock import patch, MagicMock
 from flight_planner.services import CityService, AirportService, FlightService
 
-# FILE: flight_planner/test_services.py
-
 
 class TestCityService(unittest.TestCase):
 
@@ -41,6 +39,7 @@ class TestCityService(unittest.TestCase):
         response = CityService.delete_all_cities()
         self.assertEqual(response, '')
 
+
 class TestAirportService(unittest.TestCase):
 
     @patch('flight_planner.services.storage')
@@ -77,6 +76,7 @@ class TestAirportService(unittest.TestCase):
         response = AirportService.delete_all_airports()
         self.assertEqual(response, '')
 
+
 class TestFlightService(unittest.TestCase):
 
     @patch('flight_planner.services.storage')
@@ -112,6 +112,7 @@ class TestFlightService(unittest.TestCase):
     def test_delete_all_flights(self, mock_storage):
         response = FlightService.delete_all_flights()
         self.assertEqual(response, '')
+
 
 if __name__ == '__main__':
     unittest.main()
