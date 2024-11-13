@@ -51,6 +51,10 @@ def update_airport(airport, airport_id, airport_data):
     return general_functions.update_entity(airport, airport_id, airport_data)
 
 
+def update_all_airports(airports, criteria):
+    return general_functions.update_all_entities(airports, criteria)
+
+
 #Functions for flights
 def create_flight(flight):
     return general_functions.create_entity(flights, flight)
