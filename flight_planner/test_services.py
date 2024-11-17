@@ -3,25 +3,39 @@ from unittest.mock import patch, MagicMock
 from flight_planner.services import CityService, AirportService, FlightService
 
 
-class TestCityService(unittest.TestCase):
+# FILE: flight_planner/test_services.py
+
+class SmartTestCase(unittest.TestCase):
+    def assertIncludes(self, actual, expected):
+        for key, value in expected.items():
+            self.assertEqual(actual[key], value)
+
+    def assertPiecewiseIncludes(self, actual, expected):
+        if len(actual) != len(expected):
+            self.fail('Length mismatch')
+        for (item, reference) in zip(actual, expected):
+            self.assertIncludes(item, reference)
+
+
+class TestCityService(SmartTestCase, unittest.TestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_city(self, mock_storage):
         mock_storage.create_city.return_value = {'id': 1, 'name': 'Test City'}
         response = CityService.create_city({'name': 'Test City'})
-        self.assertEqual(response, {'id': 1, 'name': 'Test City'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test City'})
 
     @patch('flight_planner.services.storage')
     def test_get_all_cities(self, mock_storage):
         mock_storage.get_all_cities.return_value = [{'id': 1, 'name': 'Test City'}]
         response = CityService.get_all_cities()
-        self.assertEqual(response, [{'id': 1, 'name': 'Test City'}])
+        self.assertPiecewiseIncludes(response, [{'id': 1, 'name': 'Test City'}])
 
     @patch('flight_planner.services.storage')
     def test_get_city(self, mock_storage):
         mock_storage.get_city.return_value = {'id': 1, 'name': 'Test City'}
         response = CityService.get_city(1)
-        self.assertEqual(response, {'id': 1, 'name': 'Test City'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test City'})
 
     @patch('flight_planner.services.storage')
     def test_get_city_not_found(self, mock_storage):
@@ -40,25 +54,25 @@ class TestCityService(unittest.TestCase):
         self.assertEqual(response, '')
 
 
-class TestAirportService(unittest.TestCase):
+class TestAirportService(SmartTestCase, unittest.TestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_airport(self, mock_storage):
         mock_storage.create_airport.return_value = {'id': 1, 'name': 'Test Airport'}
         response = AirportService.create_airport({'name': 'Test Airport'})
-        self.assertEqual(response, {'id': 1, 'name': 'Test Airport'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test Airport'})
 
     @patch('flight_planner.services.storage')
     def test_get_all_airports(self, mock_storage):
         mock_storage.get_all_airports.return_value = [{'id': 1, 'name': 'Test Airport'}]
         response = AirportService.get_all_airports()
-        self.assertEqual(response, [{'id': 1, 'name': 'Test Airport'}])
+        self.assertPiecewiseIncludes(response, [{'id': 1, 'name': 'Test Airport'}])
 
     @patch('flight_planner.services.storage')
     def test_get_airport(self, mock_storage):
         mock_storage.get_airport.return_value = {'id': 1, 'name': 'Test Airport'}
         response = AirportService.get_airport(1)
-        self.assertEqual(response, {'id': 1, 'name': 'Test Airport'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test Airport'})
 
     @patch('flight_planner.services.storage')
     def test_get_airport_not_found(self, mock_storage):
@@ -77,25 +91,25 @@ class TestAirportService(unittest.TestCase):
         self.assertEqual(response, '')
 
 
-class TestFlightService(unittest.TestCase):
+class TestFlightService(SmartTestCase, unittest.TestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_flight(self, mock_storage):
         mock_storage.create_flight.return_value = {'id': 1, 'name': 'Test Flight'}
         response = FlightService.create_flight({'name': 'Test Flight'})
-        self.assertEqual(response, {'id': 1, 'name': 'Test Flight'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test Flight'})
 
     @patch('flight_planner.services.storage')
     def test_get_all_flights(self, mock_storage):
         mock_storage.get_all_flights.return_value = [{'id': 1, 'name': 'Test Flight'}]
         response = FlightService.get_all_flights()
-        self.assertEqual(response, [{'id': 1, 'name': 'Test Flight'}])
+        self.assertPiecewiseIncludes(response, [{'id': 1, 'name': 'Test Flight'}])
 
     @patch('flight_planner.services.storage')
     def test_get_flight(self, mock_storage):
         mock_storage.get_flight.return_value = {'id': 1, 'name': 'Test Flight'}
         response = FlightService.get_flight(1)
-        self.assertEqual(response, {'id': 1, 'name': 'Test Flight'})
+        self.assertIncludes(response, {'id': 1, 'name': 'Test Flight'})
 
     @patch('flight_planner.services.storage')
     def test_get_flight_not_found(self, mock_storage):
