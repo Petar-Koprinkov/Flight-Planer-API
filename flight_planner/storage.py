@@ -1,13 +1,39 @@
+import json
+import os
 import general_functions
+
+FILE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data.json')
+print(FILE_PATH)
 
 cities = {}
 airports = {}
 flights = {}
 
 
-# Functions for cities
+def load_data():
+    global cities, airports, flights
+    if os.path.exists(FILE_PATH):
+        with open(FILE_PATH, 'r') as file:
+            data = json.load(file)
+            cities = data.get('cities', {})
+            airports = data.get('airports', {})
+            flights = data.get('flights', {})
+
+
+def save_data():
+    data = {
+        'cities': cities,
+        'airports': airports,
+        'flights': flights
+    }
+    with open(FILE_PATH, 'w') as file:
+        json.dump(data, file, indent=4)
+
+
 def create_city(city):
-    return general_functions.create_entity(cities, city)
+    entity = general_functions.create_entity(cities, city)
+    save_data()
+    return entity
 
 
 def get_all_cities():
@@ -20,15 +46,19 @@ def get_city(city_id):
 
 def delete_city(city_id):
     general_functions.delete_entity(cities, city_id)
+    save_data()
 
 
 def delete_all_cities():
     general_functions.delete_all_entities(cities)
+    save_data()
 
 
-#Functions for airports
+# Functions for airports
 def create_airport(airport):
-    return general_functions.create_entity(airports, airport)
+    entity = general_functions.create_entity(airports, airport)
+    save_data()
+    return entity
 
 
 def get_all_airports():
@@ -41,23 +71,31 @@ def get_airport(airport_id):
 
 def delete_airport(airport_id):
     general_functions.delete_entity(airports, airport_id)
+    save_data()
 
 
 def delete_all_airports():
     general_functions.delete_all_entities(airports)
+    save_data()
 
 
 def update_airport(airport, airport_id, airport_data):
-    return general_functions.update_entity(airport, airport_id, airport_data)
+    entity = general_functions.update_entity(airports, airport_id, airport_data)
+    save_data()
+    return entity
 
 
 def update_all_airports(airports, criteria):
-    return general_functions.update_all_entities(airports, criteria)
+    entities = general_functions.update_all_entities(airports, criteria)
+    save_data()
+    return entities
 
 
-#Functions for flights
+# Functions for flights
 def create_flight(flight):
-    return general_functions.create_entity(flights, flight)
+    entity = general_functions.create_entity(flights, flight)
+    save_data()
+    return entity
 
 
 def get_all_flights():
@@ -70,10 +108,12 @@ def get_flight(flight_id):
 
 def delete_flight(flight_id):
     general_functions.delete_entity(flights, flight_id)
+    save_data()
 
 
 def delete_all_flights():
     general_functions.delete_all_entities(flights)
+    save_data()
 
 
 def search_flight(flights, criteria):
@@ -81,4 +121,52 @@ def search_flight(flights, criteria):
 
 
 def update_flight(flight, flight_id, flight_data):
-    return general_functions.update_entity(flight, flight_id, flight_data)
+    entity = general_functions.update_entity(flights, flight_id, flight_data)
+    save_data()
+    return entity
+
+load_data()
+
+delete_all_cities()
+
+"""Creating city"""
+
+# create_city({"name": "Los Angeles"})
+# create_city({"name": "Nova Zagora"})
+
+
+"""Creating airport"""
+
+# create_airport({
+#     "name": "JFK International Airport",
+#     "location": "New York",
+#     "code": "JFK"
+# })
+#
+# create_airport({
+#     "name": "JFK International Airport",
+#     "location": "Nova Zagora",
+#     "code": "JFRK"
+# })
+
+
+"""Creating flights"""
+
+# create_flight({
+#     "flight_number": "AA102",
+#     "departure_airport": "JFK International Airport",
+#     "arrival_airport": "San Francisco International Airport",
+#     "departure_time": "2024-12-01 09:00",
+#     "arrival_time": "2024-12-01 12:00",
+#     "status": "Delayed"
+# })
+#
+# create_flight({
+#     "flight_number": "UA303",
+#     "departure_airport": "Los Angeles International Airport",
+#     "arrival_airport": "Chicago O'Hare International Airport",
+#     "departure_time": "2024-12-01 07:30",
+#     "arrival_time": "2024-12-01 13:00",
+#     "status": "On Time"
+# })
+#

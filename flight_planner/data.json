@@ -1,0 +1,18 @@
+{
+    "cities": {},
+    "airports": {
+        "1": {
+            "id": 1,
+            "name": "JFK International Airport",
+            "location": "New York",
+            "code": "JFK"
+        },
+        "2": {
+            "id": 2,
+            "name": "JFK International Airport",
+            "location": "Nova Zagora",
+            "code": "JFRK"
+        }
+    },
+    "flights": {}
+}

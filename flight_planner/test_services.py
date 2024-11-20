@@ -17,7 +17,7 @@ class SmartTestCase(unittest.TestCase):
             self.assertIncludes(item, reference)
 
 
-class TestCityService(SmartTestCase, unittest.TestCase):
+class TestCityService(SmartTestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_city(self, mock_storage):
@@ -54,7 +54,7 @@ class TestCityService(SmartTestCase, unittest.TestCase):
         self.assertEqual(response, '')
 
 
-class TestAirportService(SmartTestCase, unittest.TestCase):
+class TestAirportService(SmartTestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_airport(self, mock_storage):
@@ -91,7 +91,7 @@ class TestAirportService(SmartTestCase, unittest.TestCase):
         self.assertEqual(response, '')
 
 
-class TestFlightService(SmartTestCase, unittest.TestCase):
+class TestFlightService(SmartTestCase):
 
     @patch('flight_planner.services.storage')
     def test_create_flight(self, mock_storage):

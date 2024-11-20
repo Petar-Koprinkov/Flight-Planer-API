@@ -2,7 +2,6 @@
 These functions are general, and they are reused in other functions in another file-storage.py for more
 abstraction, readability and to simplify the project.
 """
-from typing import Dict
 
 
 def generate_new_id(entity_dict):
