@@ -55,16 +55,15 @@ class AirportService:
         return ''
 
     @staticmethod
-    def update_airport(airport, airport_id, airport_data):
-        return storage.update_flight(airport, airport_id, airport_data)
+    def update_airport(airport_id, airport_data):
+        return storage.update_airport(airport_id, airport_data)
 
     @staticmethod
-    def update_all_airports(airport, airport_criteria):
-        return storage.update_all_airports(airport, airport_criteria)
+    def update_all_airports(airport_criteria):
+        return storage.update_all_airports(airport_criteria)
 
 
 class FlightService:
-
     @staticmethod
     def create_flight(flight):
         return storage.create_flight(flight)
@@ -91,9 +90,9 @@ class FlightService:
         return ''
 
     @staticmethod
-    def search_flights(flights, flight_criteria):
-        return storage.search_flight(flights, flight_criteria)
+    def search_flights(criteria):
+        return storage.search_flight(criteria)
 
     @staticmethod
-    def update_flight(flight, flight_id, flight_data):
-        return storage.update_flight(flight, flight_id, flight_data)
+    def update_flight(flight_id, flight_data):
+        return storage.update_flight(flight_id, flight_data)

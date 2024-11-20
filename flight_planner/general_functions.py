@@ -29,18 +29,18 @@ def delete_all_entities(entity_dict):
 
 
 def search_entities(entity_dict, entity_criteria):
-    for key in entity_dict.keys():
-        if entity_criteria.lower() == entity_dict[key].lower():
+    for key, value in entity_dict.items():
+        if entity_criteria.lower() in value.values():
             return key
 
 
 def update_entity(entity_dict, entity_id, entity_data):
     if entity_id in entity_dict:
-        entity_dict[entity_id] = entity_data
-        return entity_dict
+        entity_dict[entity_id].update(entity_data)  # Merge new data with existing data
+        return entity_dict[entity_id]
 
 
 def update_all_entities(entity_dict, entity_criteria):
     for key in entity_dict.keys():
-        entity_dict[key] = entity_criteria
-        return entity_dict
+        entity_dict[key].update(entity_criteria)
+    return entity_dict

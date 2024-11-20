@@ -3,7 +3,6 @@ import os
 import general_functions
 
 FILE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data.json')
-print(FILE_PATH)
 
 cities = {}
 airports = {}
@@ -30,6 +29,10 @@ def save_data():
         json.dump(data, file, indent=4)
 
 
+load_data()
+
+
+# Functions for cities
 def create_city(city):
     entity = general_functions.create_entity(cities, city)
     save_data()
@@ -79,14 +82,14 @@ def delete_all_airports():
     save_data()
 
 
-def update_airport(airport, airport_id, airport_data):
+def update_airport(airport_id, airport_data):
     entity = general_functions.update_entity(airports, airport_id, airport_data)
     save_data()
     return entity
 
 
-def update_all_airports(airports, criteria):
-    entities = general_functions.update_all_entities(airports, criteria)
+def update_all_airports(airport_criteria):
+    entities = general_functions.update_all_entities(airports, airport_criteria)
     save_data()
     return entities
 
@@ -116,18 +119,18 @@ def delete_all_flights():
     save_data()
 
 
-def search_flight(flights, criteria):
+def search_flight(criteria):
     return general_functions.search_entities(flights, criteria)
 
 
-def update_flight(flight, flight_id, flight_data):
+def update_flight(flight_id, flight_data):
     entity = general_functions.update_entity(flights, flight_id, flight_data)
     save_data()
     return entity
 
-load_data()
 
-delete_all_cities()
+
+
 
 """Creating city"""
 
@@ -169,4 +172,3 @@ delete_all_cities()
 #     "arrival_time": "2024-12-01 13:00",
 #     "status": "On Time"
 # })
-#
