@@ -1,23 +1,12 @@
 from services import CityService
+from services import AirportService
+from services import FlightService
 
 
 def main():
-    new_city = {
-        "name": "New York"
-    }
-    created_city = CityService.create_city(new_city)
-    print("Created city:", created_city)
-
-    another_city = {
-        "name": "San Francisco"
-    }
-    created_city = CityService.create_city(another_city)
-    print("Created city:", created_city)
-
-    all_cities = CityService.get_all_cities()
-    print("All cities:", all_cities)
+    # Insert your command here to update the file-base storage
+    pass
 
 
 if __name__ == "__main__":
     main()
-
