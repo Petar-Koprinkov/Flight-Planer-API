@@ -15,7 +15,7 @@ class CityService:
         city = storage.get_city(city_id)
         if city is None:
             raise KeyError(f"City with id {city_id} not found!")
-        return city
+        return print(city)
 
     @staticmethod
     def delete_city(city_id):

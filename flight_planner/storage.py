@@ -40,7 +40,7 @@ def create_city(city):
 
 
 def get_all_cities():
-    return list(cities.values())
+    return print(list(cities.values()))
 
 
 def get_city(city_id):

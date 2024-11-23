@@ -1,5 +1,18 @@
 {
-    "cities": {},
+    "cities": {
+        "1": {
+            "id": 1,
+            "name": "London",
+            "location": "United Kingdom",
+            "population": 8900000
+        },
+        "3": {
+            "id": 3,
+            "name": "Sydney",
+            "location": "Australia",
+            "population": 5312000
+        }
+    },
     "airports": {},
     "flights": {}
 }
