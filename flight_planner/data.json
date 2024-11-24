@@ -1,18 +1,22 @@
 {
-    "cities": {
+    "cities": {},
+    "airports": {},
+    "flights": {
         "1": {
             "id": 1,
-            "name": "London",
-            "location": "United Kingdom",
-            "population": 8900000
+            "flight_number": "AA101",
+            "origin": "JFK",
+            "destination": "LHR",
+            "departure_time": "2024-12-01T10:00:00",
+            "arrival_time": "2024-12-01T20:00:00"
         },
-        "3": {
-            "id": 3,
-            "name": "Sydney",
-            "location": "Australia",
-            "population": 5312000
+        "2": {
+            "id": 2,
+            "flight_number": "SQ22",
+            "origin": "SIN",
+            "destination": "JFK",
+            "departure_time": "2024-12-05T12:00:00",
+            "arrival_time": "2024-12-05T22:00:00"
         }
-    },
-    "airports": {},
-    "flights": {}
+    }
 }
