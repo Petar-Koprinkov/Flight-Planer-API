@@ -1,38 +1,5 @@
 {
     "cities": {},
     "airports": {},
-    "flights": {
-        "1": {
-            "id": 1,
-            "flight_number": "AA101",
-            "origin": "JFK",
-            "destination": "LHR",
-            "departure_time": "2024-12-01T10:00:00",
-            "arrival_time": "2024-12-01T20:00:00"
-        },
-        "2": {
-            "id": 2,
-            "flight_number": "SQ22",
-            "origin": "SIN",
-            "destination": "JFK",
-            "departure_time": "2024-12-05T12:00:00",
-            "arrival_time": "2024-12-05T22:00:00"
-        },
-        "21": {
-            "id": "21",
-            "flight_number": "BA250",
-            "origin": "LHR",
-            "destination": "DXB",
-            "departure_time": "2024-12-10T15:00:00",
-            "arrival_time": "2024-12-10T23:00:00"
-        },
-        "211": {
-            "id": "211",
-            "flight_number": "BA250",
-            "origin": "LHR",
-            "destination": "DXB",
-            "departure_time": "2024-12-10T15:00:00",
-            "arrival_time": "2024-12-10T23:00:00"
-        }
-    }
+    "flights": {}
 }

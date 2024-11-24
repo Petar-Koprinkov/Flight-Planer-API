@@ -5,13 +5,14 @@ abstraction, readability and to simplify the project.
 
 
 def generate_new_id(entity_dict):
-    return max(entity_dict.keys(), default=0) + 1
+    max_id = max((int(key) for key in entity_dict.keys()), default=0)
+    return max_id + 1
 
 
 def create_entity(entity_dict, entity_data):
     new_id = generate_new_id(entity_dict)
     entity = {'id': new_id, **entity_data}
-    entity_dict[new_id] = entity
+    entity_dict[str(new_id)] = entity
     return entity
 
 
