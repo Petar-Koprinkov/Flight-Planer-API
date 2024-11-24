@@ -119,56 +119,11 @@ def delete_all_flights():
     save_data()
 
 
-def search_flight(criteria):
-    return general_functions.search_entities(flights, criteria)
+def search_flight(criteria, data):
+    return general_functions.search_entities(flights, criteria, data)
 
 
 def update_flight(flight_id, flight_data):
     entity = general_functions.update_entity(flights, flight_id, flight_data)
     save_data()
     return entity
-
-
-
-
-
-"""Creating city"""
-
-# create_city({"name": "Los Angeles"})
-# create_city({"name": "Nova Zagora"})
-
-
-"""Creating airport"""
-
-# create_airport({
-#     "name": "JFK International Airport",
-#     "location": "New York",
-#     "code": "JFK"
-# })
-#
-# create_airport({
-#     "name": "JFK International Airport",
-#     "location": "Nova Zagora",
-#     "code": "JFRK"
-# })
-
-
-"""Creating flights"""
-
-# create_flight({
-#     "flight_number": "AA102",
-#     "departure_airport": "JFK International Airport",
-#     "arrival_airport": "San Francisco International Airport",
-#     "departure_time": "2024-12-01 09:00",
-#     "arrival_time": "2024-12-01 12:00",
-#     "status": "Delayed"
-# })
-#
-# create_flight({
-#     "flight_number": "UA303",
-#     "departure_airport": "Los Angeles International Airport",
-#     "arrival_airport": "Chicago O'Hare International Airport",
-#     "departure_time": "2024-12-01 07:30",
-#     "arrival_time": "2024-12-01 13:00",
-#     "status": "On Time"
-# })

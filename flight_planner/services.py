@@ -90,8 +90,8 @@ class FlightService:
         return ''
 
     @staticmethod
-    def search_flights(criteria):
-        return storage.search_flight(criteria)
+    def search_flights(criteria, data):
+        return storage.search_flight(criteria, data)
 
     @staticmethod
     def update_flight(flight_id, flight_data):

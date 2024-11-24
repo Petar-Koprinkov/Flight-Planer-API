@@ -4,7 +4,7 @@ from services import FlightService
 
 
 def main():
-    # CRUD operations
+    # Insert CRUD operations
     pass
 
 

@@ -28,11 +28,12 @@ def delete_all_entities(entity_dict):
     entity_dict.clear()
 
 
-def search_entities(entity_dict, entity_criteria):
+def search_entities(entity_dict, entity_criteria, data):
     for key, value in entity_dict.items():
         for m_key, m_value in value.items():
-            if entity_criteria == m_value:
-                return entity_dict[key]
+            if entity_criteria == m_key:
+                if data == m_value:
+                    return entity_dict[key]
 
 
 def update_entity(entity_dict, entity_id, entity_data):
