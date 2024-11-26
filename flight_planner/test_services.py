@@ -3,8 +3,6 @@ from unittest.mock import patch, MagicMock
 from flight_planner.services import CityService, AirportService, FlightService
 
 
-# FILE: flight_planner/test_services.py
-
 class SmartTestCase(unittest.TestCase):
     def assertIncludes(self, actual, expected):
         for key, value in expected.items():
